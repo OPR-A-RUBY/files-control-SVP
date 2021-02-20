@@ -6,8 +6,8 @@ puts '0__Start application'
 puts
 
 ### '1__Query folder adress'
-get_path_folder
-puts "Получен путь: #{@path_folder}"
+get_folder_name
+puts "Получен путь: #{@folder_name}"
 puts
 
 ### '2__Make folders and files tree. Create data hach'

@@ -1,29 +1,30 @@
 # 'Query folder adress'
 # Процедура для получения адреса СТАРТОВОЙ папки для работы.
 
-def get_path_folder
+def get_folder_name
 	puts '1__Получить_имя_топ-папки'
 	
 	loop do
 		# Запрос имени топ-папки
 		print 'Введите имя Стартовой папки: '
-		@path_folder = gets.chomp
+		@folder_name = gets.chomp
 
 		
 		# Проверка наличия папки
-		if Dir.exist?(@path_folder)					# Есть папка с введённым именем?
+		if Dir.exist?(@folder_name)					# Есть папка с введённым именем?
 			puts 'Папка найдена'
-			puts Dir.children(@path_folder)   # 
+			puts Dir.children(@folder_name)   # 
 			break															# Выходим. Получены данны введённые
 		
-		elsif @path_folder == ''						# Если пустой ввод, то будет ...
-			@path_folder = 'fold' 						# ... папка по-умолчанию 'fold'
+		elsif @folder_name == ''						# Если пустой ввод, то будет ...
+			@folder_name = 'fold' 						# ... папка по-умолчанию 'fold'
 		
 			if Dir.exist?('fold')							# Есть папка 'fold'?
-				puts 'Выбрана папка fold'
+				puts 'Выбрана папка по умолчанию: "fold"'
 				break														# Выходим. Получены данные по умолчанию
 			else
 				puts 'Ошибка'
+				puts 'Отсутствует папка по умолчанию "fold"'
 				exit
 			end	
 		
