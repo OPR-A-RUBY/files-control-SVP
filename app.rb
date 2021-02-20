@@ -5,6 +5,8 @@ require './helper.rb'
 puts 'Start application'
 
 puts 'Query folder adress'
+get_path_folder
+puts @path_folder
 
 puts 'Make folders and files tree. Create data hach'
 
