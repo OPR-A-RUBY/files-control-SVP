@@ -25,7 +25,8 @@ analizing_info
 puts 'Информация сохранена'
 puts
 
-puts '5__Display rezult'
-puts 
+### '5__Display rezult'
+display_rezult
+puts 'Выведен результат анализа'
 puts 
 
