@@ -20,11 +20,12 @@ safe_info
 puts 'Информация сохранена'
 puts
 
-puts '4__Analiz informations from hach'
-puts
+### '4__Analiz informations from hach'
+analizing_info
+puts 'Информация сохранена'
 puts
 
 puts '5__Display rezult'
-pets 
+puts 
 puts 
 
