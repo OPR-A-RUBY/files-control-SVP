@@ -1,4 +1,6 @@
 # Программа сбора информации о файлах
+require './helper.rb'
+
 
 puts 'Start application'
 
