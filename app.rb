@@ -3,17 +3,28 @@ require './helper.rb'
 
 system('clear')
 puts '0__Start application'
+puts
 
-puts '1__Query folder adress'
+### '1__Query folder adress'
 get_path_folder
 puts "Получен путь: #{@path_folder}"
+puts
 
-puts '2__Make folders and files tree. Create data hach'
-create_tree
+### '2__Make folders and files tree. Create data hach'
+make_tree
+puts 'Создано дерево'
+puts
 
 ### '3__Safe hach information to file'
 safe_info
+puts 'Информация сохранена'
+puts
 
 puts '4__Analiz informations from hach'
+puts
+puts
 
 puts '5__Display rezult'
+pets 
+puts 
+
