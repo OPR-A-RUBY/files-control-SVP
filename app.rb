@@ -11,7 +11,8 @@ puts "Получен путь: #{@path_folder}"
 puts '2__Make folders and files tree. Create data hach'
 create_tree
 
-puts '3__Safe hach information to file'
+### '3__Safe hach information to file'
+safe_info
 
 puts '4__Analiz informations from hach'
 
