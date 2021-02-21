@@ -13,7 +13,6 @@ def get_folder_name
 		# Проверка наличия папки
 		if Dir.exist?(@folder_name)					# Есть папка с введённым именем?
 			puts 'Папка найдена'
-			puts Dir.children(@folder_name)   # 
 			break															# Выходим. Получены данны введённые
 		
 		elsif @folder_name == ''						# Если пустой ввод, то будет ...
@@ -30,7 +29,7 @@ def get_folder_name
 		
 		else
 			puts 'Нет такой папки ... Проверьте имя'
-																				# Повторим запрос папки
+			#																	# Повторим запрос папки
 		end 
 
 	end
