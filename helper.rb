@@ -7,22 +7,22 @@ require './def/z_safe_info'					# Сохраняем информацию в ф�
 require './def/z_analizing_info'		# Анализ прочитанных данных (расфасовка) 
 require './def/z_display_rezult'		# Вывод результата анализа
 
-def list_from_dir
-	d = Dir.children(@folder_name)
+def list_from_dir folder, path 
+	d = Dir.children(folder)
 
-	Dir.chdir(@folder_name) do
+	Dir.chdir(folder) do
 		
 		d.each do |filename|
 
-			@path_cur = @path_ + '/' + filename
+			path_cur = path + '/' + filename
 			# print @path_cur
 
 			if Dir.exist?(filename) 
 				# It is DIR
-				
+				list_from_dir filename, path_cur
 			else
 				# It is file
-				@files[@path_cur] = filename
+				@files[path_cur] = filename
 			end
 
 			# puts " = #{filename}"
