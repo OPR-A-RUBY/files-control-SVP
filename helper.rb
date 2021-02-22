@@ -6,3 +6,23 @@ require './def/z_make_tree'					# Создание дерева из содер�
 require './def/z_safe_info'					# Сохраняем информацию в файл и Хеш
 require './def/z_analizing_info'		# Анализ прочитанных данных (расфасовка) 
 require './def/z_display_rezult'		# Вывод результата анализа
+
+def list_from_dir
+	d = Dir.children(@folder_name)
+
+	Dir.chdir(@folder_name) do
+		
+		d.each do |filename|
+		
+			if Dir.exist?(filename) 
+				print 'Dir_'
+			else
+				print 'file'
+			end
+
+			puts " = #{filename}"
+			
+		end
+
+	end 
+end
