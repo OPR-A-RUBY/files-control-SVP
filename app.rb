@@ -1,6 +1,8 @@
 # Программа сбора информации о файлах
 require './helper.rb'
 
+@files = {}
+
 system('clear')
 puts '0__Start application'
 puts

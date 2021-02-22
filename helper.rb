@@ -13,15 +13,20 @@ def list_from_dir
 	Dir.chdir(@folder_name) do
 		
 		d.each do |filename|
-		
+
+			@path_cur = @path_ + '/' + filename
+			# print @path_cur
+
 			if Dir.exist?(filename) 
-				print 'Dir_'
+				# It is DIR
+				
 			else
-				print 'file'
+				# It is file
+				@files[@path_cur] = filename
 			end
 
-			puts " = #{filename}"
-			
+			# puts " = #{filename}"
+
 		end
 
 	end 
