@@ -4,31 +4,31 @@ require './helper.rb'
 @files = {}
 
 system('clear')
-puts '0__Start application'
+puts 'Запуск приложения.'
 puts
 
 ### '1__Query folder adress'
 get_folder_name
-puts "Получен путь: #{@folder_name}"
+puts "   ! Готово: Папака для чтения: #{@folder_name}"
 puts
 
 ### '2__Make folders and files tree. Create data hach'
 make_tree
-puts 'Создано дерево'
+puts '   ! Готово: Данные получены. Создано дерево файлов.'
 puts
 
 ### '3__Safe hach information to file'
 safe_info
-puts 'Информация сохранена'
+puts '   ! Готово: Дерево файлов сохранено на диск.'
 puts
 
 ### '4__Analiz informations from hach'
 analizing_info
-puts 'Информация сохранена'
+puts '   ! Готово: Анализ данных закончен.'
 puts
 
 ### '5__Display rezult'
 display_rezult
-puts 'Выведен результат анализа'
+puts '   ! Готово: Выведен результат анализа'
 puts 
 
