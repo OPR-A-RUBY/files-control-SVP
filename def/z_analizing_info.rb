@@ -27,7 +27,7 @@ def analizing_info
 			item[2] = arr[3]
 			item[3] = value	
 		
-		elsif arr.size == 5							# файл ледит в папке отдела ВЕРНО
+		elsif arr.size == 5							# файл лежит в папке отдела. ЭТО ВЕРНО.
 			item[0] = arr[0]+'/'+arr[1]
 			item[1] = arr[2]
 			item[2] = arr[4]

@@ -7,3 +7,9 @@
 5. Анализ содержимого папки из ХЕША
 6. Вывод отчёта.
 
+CREATE TABLE "Cars" ("ID" INTEGER PRIMARY KEY AUTOINCREMENT, "name" VARCHAR, "price" INTEGER);
+
+INSERT INTO Cars (Id, Name, Prise) VALUES (1, 'BMW', 10000)
+
+INSERT INTO Cars (Name, Prise) VALUES ('BMW', 10000) - если id атоинкримент
+
