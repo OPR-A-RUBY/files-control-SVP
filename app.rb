@@ -2,6 +2,7 @@
 require './helper.rb'
 
 @files = {}
+@file_params = []
 
 system('clear')
 puts 'Запуск приложения.'

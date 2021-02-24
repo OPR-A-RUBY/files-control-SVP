@@ -22,7 +22,6 @@ def read_from_dir folder, path      # имя папки и путь к ней
 		d.each do |filename|						# Перебираем все файлы в папке
 
 			path_cur = path + '/' + filename	# Путь + / + файл = уникальный ключ (для хеша) 
-			### print @path_cur
 
 			if Dir.exist?(filename) 			# этот файл - есть директория?
 				# It is DIR
@@ -31,13 +30,13 @@ def read_from_dir folder, path      # имя папки и путь к ней
 				# It is file
 				if filename != 'Thumbs.db'  # исключаем паразитов 'Thumbs.db' из учёта в список (!)
 				
-					file_params = filename
-					@files[path_cur] = file_params  # пишем параметры в хеш
+					read_file_params filename # запрашиваем параметры файла
+
+					@files[path_cur] = @file_params  # пишем параметры в хеш
 				
 				end
 
 			end
-			### puts " = #{filename}"
 
 		end
 
@@ -54,5 +53,15 @@ def view_files_hash
 	@files.each do |key, value| 
 			puts "#{value} = from = #{key}"
 	end
+
+end
+
+
+
+# (03) =================================================================================
+# Получить параметры файла f и в виде массива вернуть из этого метода
+def read_file_params f
+	#                    acces          modefi         size     name
+	@file_params = [File.atime(f), File.mtime(f), File.size(f), f]
 
 end
