@@ -28,7 +28,7 @@ puts
 
 ### '4__Analiz informations from hach'
 analizing_info
-puts '   ! Готово: Анализ данных закончен.'
+puts '   ! Готово: Анализ данных завершен.'
 puts
 
 ### '5__Display rezult'

@@ -69,8 +69,8 @@ def read_info
 			else
 				arr = []
 			end	
-# print arr0[0]				
-# puts arr.inspect
+ # print arr0[0]				
+ # puts arr.inspect
 			@tree_old[arr0[0]] = arr
 		end
 			

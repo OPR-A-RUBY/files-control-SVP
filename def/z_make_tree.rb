@@ -5,7 +5,7 @@ def make_tree
 	
 	read_from_dir @folder_name, @folder_name		# Сформировать список файлов
 
-	view_files_hash	@tree												# Показать полученный список
+	# view_files_hash	@tree												# Показать полученный список
 
 end
 
