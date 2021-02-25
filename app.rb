@@ -3,7 +3,7 @@ require './helper.rb'
 
 @tree = {}
 @file_params = []
-@tree_ = []
+@arr = []
 
 system('clear')
 puts 'Запуск приложения.'
