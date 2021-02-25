@@ -28,8 +28,12 @@ def safe_info
 
 
 		# Перебираем весь Хеш @files и пишем данные в файл (разделитель табуляция)
-		@tree.each do |key, value| 
-			output_file.write "#{key}\t#{value}\n"
+		@tree.each do |key, value|
+			f = '' 
+			value.each do |file|
+				f = f + ', ' + file
+			end
+			output_file.write "#{key}\t#{f}\n"
 		end
 
 		# Кончился Хеш. Закрываем файл.
@@ -44,31 +48,35 @@ def read_info
 	# Получить информацию из файла в Хеша.
 
 	# Получить имя файла OLD_.list	
-	old_file = 'OLD_.list' 
-	puts '   | file_name: ' + old_file
+	o_file = 'OLD_.list' 
+	puts '   | file_name: ' + o_file
 
 	# Дальше работаем в дирктории 'listings' (Заходим в блок do-end)
-	list_dir = 'listings'
-	Dir.chdir(list_dir) do
+	l_dir = 'listings'
+	Dir.chdir(l_dir) do
 	
 		# Открываем файл для чтения со специальным именем, см выше
-		input_file = File.open(old_file, "r") 
-		# Запись служебной информации (имя файла, количество объектов) ############ STOP ##################
-		input_file.write "My name: #{listing_file}\n"
-		input_file.write "I'm has: #{elements} objects\n"
-		input_file.write "----------------------------------\n"
+		input_file = File.open(o_file, "r") 
+		# Пропускаем служебную информацию 
+		3.times { line = input_file.gets }
 
 		while (line = input_file.gets)
-		# Перебираем весь Хеш @files и пишем данные в файл (разделитель табуляция)
-			@tree.each do |key, value| 
-				output_file.write "#{key}\t#{value}\n"
-			end
+		# Записываем в Хеш @tree_o информацию из файла
+			arr0 = line.chomp.split("\t")
+			if arr0[1] != nil
+				arr = arr0[1].split(', ')
+				arr.delete_at(0)
+			else
+				arr = []
+			end	
+# print arr0[0]				
+# puts arr.inspect
+			@tree_old[arr0[0]] = arr
 		end
 			
-		# Кончился Хеш. Закрываем файл.
+		# Кончился файл. Закрываем файл.
 		input_file.close
 
 		# Закрываем блок. Возвращаемся в исходную директорию
 	end
-
 end

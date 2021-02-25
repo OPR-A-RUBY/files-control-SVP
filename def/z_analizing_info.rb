@@ -6,8 +6,13 @@ def analizing_info
 	# Получаем массив @arr из Хеша @tree
 	create_array @tree, @arr
 
-	output_array
+	output_array @arr
 
+	read_info
+
+	create_array @tree_old, @arr_old
+
+	output_array @arr_old
 end
 
 def create_array hh, array
@@ -62,9 +67,9 @@ def create_array hh, array
 	end 
 end
 
-def output_array
+def output_array arr
 	puts '==============================='
-	@arr.each do |item|
+	arr.each do |item|
 		if item[2] == 0
 			print ' - '
 		else
