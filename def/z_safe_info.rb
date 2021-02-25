@@ -8,7 +8,7 @@ def safe_info
 	Dir.mkdir(list_folder) if !Dir.exist?(list_folder) 
 
 	# Создать уникальное имя файла (по "сейчас" дате и времени) с расширением .list
-	elements = @files.size.to_s
+	elements = @tree.size.to_s
 	listing_file = Time.now.strftime '%Y-%m-%d__%H:%M:%S__(' + elements + ')_.list' 
 	puts '   | file_name: ' + listing_file
 
@@ -24,7 +24,7 @@ def safe_info
 
 
 		# Перебираем весь Хеш @files и пишем данные в файл (разделитель табуляция)
-		@files.each do |key, value| 
+		@tree.each do |key, value| 
 			output_file.write "#{value}\t#{key}\n"
 		end
 

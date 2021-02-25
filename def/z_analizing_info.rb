@@ -4,9 +4,9 @@ def analizing_info
 	puts '4__Анализ информации из ХЕШа.'
 
 	item = []
-	@files.each do |key, value|
+	@tree.each do |key, value|
 		arr = key.split('/')
-		puts arr.inspect
+		# puts arr.inspect
 
 		item = []
 		if arr.size == 2								# файл лежит в корневой папке
@@ -35,17 +35,17 @@ def analizing_info
 		
 		end
 		
-		@tree << item
+		@tree_ << item
 
 	end
 	
-	output_arr
+	# output_arr
 
 end
 
 def output_arr
 	puts '==============================='
-	@tree.each do |item|
+	@tree_.each do |item|
 		puts "#{item[0]} - #{item[1]} = #{item[2]}"
 	end	
 end	

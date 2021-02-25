@@ -5,7 +5,7 @@ def make_tree
 	
 	read_from_dir @folder_name, @folder_name		# Сформировать список файлов
 
-	view_files_hash															# Показать полученный список
+	# view_files_hash															# Показать полученный список
 
 end
 
@@ -19,33 +19,30 @@ def read_from_dir folder, path      # имя папки и путь к ней
 
 	Dir.chdir(folder) do							# Заходим в папку, чтобы там делать:
 		
-		if d.empty?
-			path_cur = path + '/'
-			@tree[path_cur] = ['***'] 
-		end
-			
 		d.each do |filename|						# Перебираем все файлы в папке
-			
+
+			path_cur = path + '/' + filename	# Путь + / + файл = уникальный ключ (для хеша) 
+
 			if Dir.exist?(filename) 			# этот файл - есть директория?
 				# It is DIR
-				path_cur = path + '/' + filename 
-
 				read_from_dir filename, path_cur # тогда РЕКУРСИВНО за пускае себя с нов. парам.
-				
-			elsif File.exist?(filename)
+			else
 				# It is file
 				if filename != 'Thumbs.db'  # исключаем паразитов 'Thumbs.db' из учёта в список (!)
 				
-					# read_file_params filename # запрашиваем параметры файла
-					path_cur = path + '/'
+					read_file_params filename # запрашиваем параметры файла
 
-					@tree[path_cur] = @tree[path_cur].to_a << filename  # пишем параметры в хеш
+					@files[path_cur] = @file_params  # пишем параметры в хеш
 				
 				end
-			end	
+
+			end
+
 		end
+
 	end  
 end
+
 
 
 
@@ -53,8 +50,8 @@ end
 # Показать, хеш файлов полученный после полного прохода всех паппок
 def view_files_hash
 
-	@tree.each do |key, value| 
-			puts "#{key} ==> #{value}"
+	@files.each do |key, value| 
+			puts "#{value} = from = #{key}"
 	end
 
 end

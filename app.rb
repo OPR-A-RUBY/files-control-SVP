@@ -1,9 +1,9 @@
 # Программа сбора информации о файлах
 require './helper.rb'
 
-@files = {}
+@tree = {}
 @file_params = []
-@tree = []
+@tree_ = []
 
 system('clear')
 puts 'Запуск приложения.'
