@@ -17,14 +17,14 @@ end
 def read_from_dir folder, path      # имя папки и путь к ней 
 	d = Dir.children(folder)					# Получаем массив дочерних файлов
 
-	Dir.chdir(folder) do							# Заходим в папку, чтобы там делать:
-		
-		if d.empty?
-			path_cur = path + '/'
-			@tree[path_cur] = ['***'] 
-		end
-			
-		d.each do |filename|						# Перебираем все файлы в папке
+	
+	@tree[path + '/'] = [] 							# По умолчанию в нашей папке пусто
+	# И если так случиться, что в ней нет файлов и папок, то код ниже не выполнится
+	# исключение файлы 'Thumbs.db', но их мы не обрабатываем. См. ниже.	
+
+	Dir.chdir(folder) do							# Заходим в папку, чтобы там дейчствовать:
+	
+		d.each do |filename|						# Перебираем все файлы и папки в этой папке
 			
 			if Dir.exist?(filename) 			# этот файл - есть директория?
 				# It is DIR
@@ -35,11 +35,9 @@ def read_from_dir folder, path      # имя папки и путь к ней
 			elsif File.exist?(filename)
 				# It is file
 				if filename != 'Thumbs.db'  # исключаем паразитов 'Thumbs.db' из учёта в список (!)
-				
-					# read_file_params filename # запрашиваем параметры файла
-					path_cur = path + '/'
 
-					@tree[path_cur] = @tree[path_cur].to_a << filename  # пишем параметры в хеш
+					path_cur = path + '/' 	
+					@tree[path_cur] = @tree[path_cur] << filename  # пишем параметры в хеш
 				
 				end
 			end	
@@ -54,7 +52,7 @@ end
 def view_files_hash
 
 	@tree.each do |key, value| 
-			puts "#{key} ==> #{value}"
+			puts "#{key} \t\t #{value}"
 	end
 
 end
