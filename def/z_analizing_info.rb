@@ -6,13 +6,13 @@ def analizing_info
 	# Получаем массив @arr из Хеша @tree
 	create_array @tree, @arr
 
-	output_array @arr
+	# output_array @arr
 
 	read_info
 
 	create_array @tree_old, @arr_old
 
-	output_array @arr_old
+	# output_array @arr_old
 
 	# сравним массивы
 	compare_arrays
@@ -89,15 +89,15 @@ def compare_arrays
 	arr_size = @arr.size
 	arr_old_size = @arr_old.size
 
-	puts
+	# puts '   | '
 	if arr_size > arr_old_size 
-		puts "общее количество записей: УВЕЛИЧИЛОСЬ на #{arr_size - arr_old_size}"
+		puts "   | общее количество записей: УВЕЛИЧИЛОСЬ на #{arr_size - arr_old_size}"
 		
 	elsif arr_size < arr_old_size
-		puts "Общее количество записей: уменьшилось на #{arr_old_size - arr_size}"
+		puts "   | Общее количество записей: уменьшилось на #{arr_old_size - arr_size}"
 		
 	elsif
-		puts 'Общее количество записей: не изменилось.'
+		puts '   | Общее количество записей: не изменилось.'
 
 	end
 	comp_2 @arr, @arr_old, un, uo
@@ -109,16 +109,16 @@ def compare_arrays
 end
 
 def comp_all n, o
-	puts ''
-	puts 'Следующие записи имеют несовпадения:'
+	puts '   |'
+	puts '   | Следующие записи имеют несовпадения:'
 	n.each do |item_n|
 		o.each do |item_o|
 			if item_n[0] == item_o[0] && item_n[1] == item_o[1]
 
 				if item_n[2] != item_o[2] || item_n[3] != item_o[3]
-					puts "Old: #{item_o[0]+'/'+item_o[1]} = #{item_o[2]}: #{item_o[3]}"
-					puts "Now: #{item_n[0]+'/'+item_n[1]} = #{item_n[2]}: #{item_n[3]}" 
-					puts
+					puts "   | Old: #{item_o[0]+'/'+item_o[1]} = #{item_o[2]}: #{item_o[3]}"
+					puts "   | Now: #{item_n[0]+'/'+item_n[1]} = #{item_n[2]}: #{item_n[3]}" 
+					puts '   | '
 				end
 					
 			end 
@@ -169,16 +169,16 @@ end
 def out_ar un, uo
 	### puts un
 	if un.size != 0
-		puts 'Появились новые записи:'
+		puts '   | Появились новые записи:'
 		un.each_with_index do |item, index|
-			puts "| #{index+1}. #{item}"
+			puts "   | #{index+1}. #{item}"
 		end
 	end
 	### puts uo
 	if uo.size != 0	
-		puts 'Исчезли старые записи:'
+		puts '   | Исчезли старые записи:'
 		uo.each_with_index do |item, index|
-			puts "| #{index+1}. #{item}"
+			puts "   | #{index+1}. #{item}"
 		end
 	end	
 end

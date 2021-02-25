@@ -49,7 +49,7 @@ def read_info
 
 	# Получить имя файла OLD_.list	
 	o_file = 'OLD_.list' 
-	puts '   | file_name: ' + o_file
+	# puts '   | file_name: ' + o_file
 
 	# Дальше работаем в дирктории 'listings' (Заходим в блок do-end)
 	l_dir = 'listings'
