@@ -25,7 +25,7 @@ def safe_info
 
 		# Перебираем весь Хеш @files и пишем данные в файл (разделитель табуляция)
 		@tree.each do |key, value| 
-			output_file.write "#{value}\t#{key}\n"
+			output_file.write "#{key}\t#{value}\n"
 		end
 
 		# Кончился Хеш. Закрываем файл.
